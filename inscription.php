@@ -15,6 +15,16 @@ if (!empty($_POST['login']) AND !empty($_POST['password']) AND !empty($_POST['co
     $errors[] = "Login must :<br>- contain between 4 and 20 characters.<br>- start with a letter.<br>- not contain any special characters (except - and _).";
   }
 
+  /* LOGIN AVAILABLE ? */
+
+  $request = " SELECT login FROM utilisateurs WHERE login = '" . $login . "';";
+  $query = mysqli_query($db, $request);
+  $login_check = mysqli_fetch_array($query);
+
+  if (!empty($login_check)) {
+    $errors[] = "This user already exist.";
+  }
+
   /*MDP*/
 
   $password_required = preg_match("#^(?=.*?[A-Z]{1,})(?=.*?[a-z]{1,})(?=.*?[0-9]{1,})(?=.*?[\W]{1,}).{8,20}$#", $password_init);
@@ -47,7 +57,7 @@ mysqli_close($db);
  <html lang="fr" dir="ltr">
    <head>
      <meta charset="utf-8">
-     <title></title>
+     <title>Inscription - Guest book</title>
    </head>
    <body>
      <header>
