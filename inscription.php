@@ -5,7 +5,7 @@ if (!empty($_POST['login']) AND !empty($_POST['password']) AND !empty($_POST['co
 
   $login = $_POST['login'];
   $password_init = $_POST['password'];
-  $password_modified = password_hash($password_init, PASSWORD_BCRYPT, array('cost' => 10));
+  $password_conf = $_POST['conf_password'];
 
   /*LOGIN*/
 
@@ -13,13 +13,31 @@ if (!empty($_POST['login']) AND !empty($_POST['password']) AND !empty($_POST['co
 
   if (!$login_required) {
     $errors[] = "Login must :<br>- contain between 4 and 20 characters.<br>- start with a letter.<br>- not contain any special characters (except - and _).";
-    echo $errors[0];
   }
 
   /*MDP*/
 
+  $password_required = preg_match("#^(?=.*?[A-Z]{1,})(?=.*?[a-z]{1,})(?=.*?[0-9]{1,})(?=.*?[\W]{1,}).{8,20}$#", $password_init);
+
+  if (!$password_required) {
+    $errors[]= "Password must :<br>- contain between 8 and 20 characters<br>- contain at least 1 special character, 1 number, 1 upper and 1 lower case.";
+  }
+
+  if ($password_conf != $password_init) {
+    $errors[] = "Passwords are not identical.";
+  }
+
   /*ENVOI DONNEES*/
 
+  if (empty($errors)){
+    $password_modified = password_hash($password_init, PASSWORD_BCRYPT, array('cost' => 10));
+    $request = "INSERT INTO utilisateurs(login, password) VALUES('" . $login . "', '" . $password_modified . "') ";
+    $query = mysqli_query($db, $request);
+  }
+
+}
+elseif(!empty($_POST)){
+  $errors[] = "Every field must be filled.";
 }
 
 mysqli_close($db);
