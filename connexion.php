@@ -1,45 +1,5 @@
 <?php
-$db = mysqli_connect("localhost","root","","livreor");
-
-if (!empty($_POST['login']) AND !empty($_POST['password'])) {
-
-  /* SIMPLIFICATION */
-
-  $login = $_POST['login'];
-  $password = $_POST['password'];
-
-  /* LOGIN CHECK */
-
-  $request = "SELECT id FROM utilisateurs WHERE login = '" . $login . "';";
-  $query = mysqli_query($db, $request);
-  $login_check = mysqli_fetch_array($query);
-
-  if (empty($login_check)) {
-    $errors[] = "This user does not exist.";
-  }
-
-  /* MDP CHECK */
-
-  else {
-
-    $request = "SELECT password FROM utilisateurs where id = '" . $login_check[0] . "';";
-    $query = mysqli_query($db, $request);
-    $mdp_check = mysqli_fetch_array($query);
-
-    if (password_verify($password, $mdp_check[0])) {
-      $_SESSION['id'] = $login_check[0];
-    }
-    else {
-      $errors[]= "Password is invalid.";
-    }
-  }
-
-}
-elseif(!empty($_POST)) {
-  $errors[] = "Every field must be filled.";
-}
-
-mysqli_close($db);
+$page_selected = "connexion";
  ?>
 
  <!DOCTYPE html>
@@ -50,9 +10,50 @@ mysqli_close($db);
    </head>
    <body>
      <header>
-       <!-- A FAIRE -->
+      <?php
+      include 'header.php';
+       $errors = [];
+       if (!empty($_POST['login']) AND !empty($_POST['password']))
+       {
+         $login = $_POST['login'];
+         $password = $_POST['password'];
+
+         /* LOGIN CHECK */
+
+         $request = "SELECT id FROM utilisateurs WHERE login = '" . $login . "';";
+         $query = mysqli_query($db, $request);
+         $login_check = mysqli_fetch_array($query);
+         if (empty($login_check))
+         {
+           $errors[] = "This user does not exist.";
+         }
+
+         /* MDP CHECK */
+
+         else
+         {
+           $request = "SELECT password FROM utilisateurs where id = '" . $login_check[0] . "';";
+           $query = mysqli_query($db, $request);
+           $mdp_check = mysqli_fetch_array($query);
+           if (password_verify($password, $mdp_check[0]))
+           {
+             $_SESSION['id'] = $login_check[0];
+             header('location: index.php');
+           }
+           else
+           {
+             $errors[]= "Password is invalid.";
+           }
+         }
+       }
+       elseif(!empty($_POST))
+       {
+         $errors[] = "Every field must be filled.";
+       }
+      ?>
      </header>
      <main>
+       <?= renderErrors($errors) ?>
        <h1>Connexion</h1>
        <form class="" action="connexion.php" method="post">
          <ul>
