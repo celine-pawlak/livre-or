@@ -7,6 +7,7 @@ $page_selected = "connexion";
    <head>
      <meta charset="utf-8">
      <title>Connexion - Guest book</title>
+     <link rel="stylesheet" href="styles/css/fa.css">
    </head>
    <body>
      <header>
