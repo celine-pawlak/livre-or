@@ -55,21 +55,23 @@ $page_selected = "connexion";
       ?>
      </header>
      <main>
-       <?= renderErrors($errors) ?>
-       <h1>Connexion</h1>
-       <form class="" action="connexion.php" method="post">
-         <ul>
-           <li>
-             <label for="login">Login</label>
-             <input type="text" name="login" value="" required>
-           </li>
-           <li>
-             <label for="password">Password</label>
-             <input type="password" name="password" value="" required>
-           </li>
-         </ul>
-         <button type="submit" name="connect">Log in</button>
-       </form>
+       <div class="main_max_width">
+         <?= renderErrors($errors) ?>
+         <h1>Connexion</h1>
+         <form class="" action="connexion.php" method="post">
+           <ul>
+             <li>
+               <label for="login">Login</label>
+               <input type="text" name="login" value="" required>
+             </li>
+             <li>
+               <label for="password">Password</label>
+               <input type="password" name="password" value="" required>
+             </li>
+           </ul>
+           <button type="submit" name="connect">Log in</button>
+         </form>
+       </div>
      </main>
      <footer>
        <!-- A FAIRE -->

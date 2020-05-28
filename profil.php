@@ -90,36 +90,40 @@ $page_selected = "profil";
         ?>
      </header>
      <main>
-       <?= renderErrors($errors) ?>
-       <h1>Profile</h1>
-       <p>Hello <?php echo $user_info['login']; ?> </p>
-       <h2>Change login</h2>
-       <form class="" action="profil.php" method="post">
-         <ul>
-           <li>
-             <input type="text" name="new_login" value="" placeholder="New login" required>
-           </li>
-           <li>
-             <input type="text" name="new_login_conf" value="" placeholder="Confirm login" required>
-           </li>
-         </ul>
-         <button type="submit" name="new_login_submit">Confirm new login</button>
-       </form>
-       <h2>Change password</h2>
-       <form class="" action="profil.php" method="post">
-         <ul>
-           <li>
-             <input type="password" name="old_pass" value="" placeholder="Old password" required>
-           </li>
-           <li>
-             <input type="password" name="new_pass" value="" placeholder="New password" required>
-           </li>
-           <li>
-             <input type="password" name="new_pass_conf" value="" placeholder="Confirm password" required>
-           </li>
-         </ul>
-         <button type="submit" name="new_pass_submit">Confirm new password</button>
-       </form>
+       <div class="main_max_width">
+         <?= renderErrors($errors) ?>
+         <h1>Profile</h1>
+         <p>Hello <?php echo $user_info['login']; ?> </p>
+         <div class="container_dual_form">
+           <form class="dual_form" action="profil.php" method="post">
+             <h2>Change login</h2>
+             <ul>
+               <li>
+                 <input type="text" name="new_login" value="" placeholder="New login" required>
+               </li>
+               <li>
+                 <input type="text" name="new_login_conf" value="" placeholder="Confirm login" required>
+               </li>
+             </ul>
+             <button type="submit" name="new_login_submit">Confirm new login</button>
+           </form>
+           <form class="dual_form" action="profil.php" method="post">
+             <h2>Change password</h2>
+             <ul>
+               <li>
+                 <input type="password" name="old_pass" value="" placeholder="Old password" required>
+               </li>
+               <li>
+                 <input type="password" name="new_pass" value="" placeholder="New password" required>
+               </li>
+               <li>
+                 <input type="password" name="new_pass_conf" value="" placeholder="Confirm password" required>
+               </li>
+             </ul>
+             <button type="submit" name="new_pass_submit">Confirm new password</button>
+           </form>
+         </div>
+       </div>
      </main>
      <footer>
 

@@ -68,25 +68,27 @@ $page_selected = "inscription";
       ?>
      </header>
      <main>
-       <?= renderErrors($errors) ?>
-       <h1>Register</h1>
-       <form class="" action="inscription.php" method="post">
-         <ul>
-           <li>
-             <label for="login">Login</label>
-             <input type="text" name="login" value="" placeholder="Create login" required>
-           </li>
-           <li>
-             <label for="password">Password</label>
-             <input type="password" name="password" value="" placeholder="Create password" required>
-           </li>
-           <li>
-             <label for="conf_password">Password</label>
-             <input type="password" name="conf_password" value="" placeholder="Confirm password" required>
-           </li>
-         </ul>
-         <button type="submit" name="submit">Create account</button>
-       </form>
+       <div class="main_max_width">
+         <?= renderErrors($errors) ?>
+         <h1>Register</h1>
+         <form class="" action="inscription.php" method="post">
+           <ul>
+             <li>
+               <label for="login">Login</label>
+               <input type="text" name="login" value="" placeholder="Create login" required>
+             </li>
+             <li>
+               <label for="password">Password</label>
+               <input type="password" name="password" value="" placeholder="Create password" required>
+             </li>
+             <li>
+               <label for="conf_password">Password</label>
+               <input type="password" name="conf_password" value="" placeholder="Confirm password" required>
+             </li>
+           </ul>
+           <button type="submit" name="submit">Create account</button>
+         </form>
+       </div>
      </main>
      <footer>
        <!-- A FAIRE -->

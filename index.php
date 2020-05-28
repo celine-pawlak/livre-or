@@ -15,7 +15,9 @@ $page_selected = "index";
       <?php include 'header.php'; ?>
     </header>
     <main>
+      <div class="main_max_width">
 
+      </div>
     </main>
     <footer>
 
