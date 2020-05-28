@@ -43,24 +43,27 @@ function renderErrors($errors)
   }
 }
  ?>
+
 <nav>
   <div class="logo">
-    <a href="index.php">
-      <i class="fas fa-book-open"></i>
-    </a>
-    <p>Hello
-    <?php
-    if (isset($_SESSION['id'])) {
-      $request = "SELECT login FROM utilisateurs WHERE id = '" . $_SESSION['id'] . "';";
-      $query = mysqli_query($db, $request);
-      $show_login = mysqli_fetch_array($query);
-      echo $show_login[0];
-    }
-    else {
-      echo "stranger";
-    }
-     ?> !
-  </p>
+    <p>
+      <a href="index.php"><i class="fas fa-book-open"></i></a>
+      Hello
+      <em>
+      <?php
+      if (isset($_SESSION['id'])) {
+        $request = "SELECT login FROM utilisateurs WHERE id = '" . $_SESSION['id'] . "';";
+        $query = mysqli_query($db, $request);
+        $show_login = mysqli_fetch_array($query);
+        echo "&nbsp;",$show_login[0],"&nbsp;";
+      }
+      else {
+        echo "&nbsp;","stranger","&nbsp;";
+      }
+       ?>
+     </em>
+    !
+   </p>
   </div>
   <div class="head_guest_book">
     <a href="livre-or.php"><h1>Guest Book</h1></a>
@@ -68,18 +71,20 @@ function renderErrors($errors)
   <div class="account">
     <?php if (isset($_SESSION['id'])) { ?>
       <ul>
-        <li>
-          <a href="profil.php">My account</a>
-          <ul>
+        <li class="liste">
+          <a href="profil.php"><em>My account</em></a>
+          <ul class="sous-liste">
             <li>
-              <a href="delete_session.php"><i class="fal fa-sign-out-alt">Disconnect</i></a>
+              <a href="delete_session.php"><i class="fal fa-sign-out-alt"></i><?="&nbsp;"?>Disconnect</a>
             </li>
           </ul>
         </li>
       </ul>
     <?php }
     else { ?>
-    <p><a href="connexion.php">Connect</a> or <a href="inscription.php">Register</a></p>
+      <a href="connexion.php"><em>Connect</em></a>
+      <?="&nbsp;"?><p>or</p><?="&nbsp;"?>
+      <a href="inscription.php"><em>Register</em></a>
     <?php } ?>
   </div>
 </nav>

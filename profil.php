@@ -8,6 +8,7 @@ $page_selected = "profil";
      <meta charset="utf-8">
      <title>Profile - Guest book</title>
      <link rel="stylesheet" href="styles/css/fa.css">
+     <link rel="stylesheet" href="styles/css/livre-or.css">
    </head>
    <body>
      <header>

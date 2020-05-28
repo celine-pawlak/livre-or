@@ -8,6 +8,7 @@ $page_selected = "livre_or";
     <meta charset="utf-8">
     <title>Guest Book</title>
     <link rel="stylesheet" href="styles/css/fa.css">
+    <link rel="stylesheet" href="styles/css/livre-or.css">
   </head>
   <body>
     <header>
