@@ -43,8 +43,8 @@ $page_selected = "livre_or";
           </div>
         </div>
         <div class="add_comments" id="comment">
-          <form class="" action="livre-or.php" method="post">
-            <textarea name="comment" value="" placeholder="Write something nice :)" minlength="10" maxlength="1000" rows="10" cols="10" spellcheck="true" required></textarea>
+          <form action="livre-or.php" method="post">
+            <textarea name="comment" value="" placeholder="Write something nice :)" rows="10" cols="500" required></textarea>
             <button type="submit" name="submit_comment">Send</button>
           </form>
         </div>

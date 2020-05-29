@@ -38,7 +38,7 @@ main{
 }
 
 @font-face {font-family:'Tangerine';src: url('../font/Tangerine-Regular.ttf');}
-@font-face {font-family:'TenaliRamakrishna';src: url('../font/TenaliRamakrishna-Regular.ttf');}
+@font-face {font-family:'CormorantUpright-Light';src: url('../font/CormorantUpright-Light.ttf');}
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Tangerine';
@@ -52,7 +52,11 @@ p{
 }
 
 body, input, button, textarea{
-  font-family: 'TenaliRamakrishna';
+  font-family: 'CormorantUpright-Light';
+}
+
+textarea{
+  resize:none;
 }
 
 .liste, a{
@@ -79,7 +83,7 @@ header{
   background-color: var(--color-five);
   height: 7vh;
   color: white;
-  font-family: 'TenaliRamakrishna';
+  font-family: 'CormorantUpright-Light';
   box-shadow: 0px 1px 3px var(--color-four);
   position: sticky;
   top:0;
@@ -108,7 +112,13 @@ nav div{
   align-items: center;
   justify-content: center;
 }
-
+.account{
+  height: 100%;
+}
+.account ul{
+  padding: 1rem;
+  margin: 0;
+}
 .logo p{
   display: flex;
   align-items: center;
@@ -139,7 +149,8 @@ nav div{
   background-color: var(--color-five);
   box-shadow: 0px 2px 3px var(--color-four);
   width: 150%;
-  margin-top: 25px;
+  top: 15px;
+  margin-top: 15px;
 }
 .sous-liste li{
   display: flex;
@@ -243,12 +254,13 @@ form li input{
   margin: 1rem;
   text-align: left;
 }
+.comments p{
+  word-break: break-word;
+}
 .add_comments{
   margin:1rem;
 }
-.add_comments form{
-  width: 100%;
-}
+
 .add_comments button{
   width:20%;
   margin: 0.5rem auto;
