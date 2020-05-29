@@ -8,7 +8,8 @@ $page_selected = "inscription";
      <meta charset="utf-8">
      <title>Inscription - Guest book</title>
      <link rel="stylesheet" href="styles/css/fa.css">
-     <link rel="stylesheet" href="styles/css/livre-or.css">
+     <link rel="stylesheet" href="styles/css/livreor.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
    <body>
      <header>

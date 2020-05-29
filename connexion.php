@@ -8,7 +8,8 @@ $page_selected = "connexion";
      <meta charset="utf-8">
      <title>Connexion - Guest book</title>
      <link rel="stylesheet" href="styles/css/fa.css">
-     <link rel="stylesheet" href="styles/css/livre-or.css">
+     <link rel="stylesheet" href="styles/css/livreor.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
    <body>
      <header>
@@ -62,11 +63,11 @@ $page_selected = "connexion";
            <ul>
              <li>
                <label for="login">Login</label>
-               <input type="text" name="login" value="" required>
+               <input type="text" name="login" value="" placeholder="Enter login" required>
              </li>
              <li>
                <label for="password">Password</label>
-               <input type="password" name="password" value="" required>
+               <input type="password" name="password" value="" placeholder="Enter password" required>
              </li>
            </ul>
            <button type="submit" name="connect">Log in</button>

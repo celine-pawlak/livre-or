@@ -8,7 +8,8 @@ $page_selected = "profil";
      <meta charset="utf-8">
      <title>Profile - Guest book</title>
      <link rel="stylesheet" href="styles/css/fa.css">
-     <link rel="stylesheet" href="styles/css/livre-or.css">
+     <link rel="stylesheet" href="styles/css/livreor.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
    <body>
      <header>
@@ -39,7 +40,6 @@ $page_selected = "profil";
          $login_required = preg_match("/^(?=.*[A-Za-z0-9]$)[A-Za-z][A-Za-z\d\-\_]{3,19}$/", $new_login);
          if (!$login_required)
          {
-           var_dump($new_login) ;
            $errors[] = "Login must :<br>- Contain between 4 and 20 characters.<br>- Start with a letter.<br>- End with a letter or a number.<br>- Not contain any special characters (except - and _).";
          }
          if (empty($errors))
@@ -93,7 +93,7 @@ $page_selected = "profil";
        <div class="main_max_width">
          <?= renderErrors($errors) ?>
          <h1>Profile</h1>
-         <p>Hello <?php echo $user_info['login']; ?> </p>
+         <p>Hey <em><?php echo $user_info['login']; ?></em>, in this page, you can modify your login and password.</p>
          <div class="container_dual_form">
            <form class="dual_form" action="profil.php" method="post">
              <h2>Change login</h2>
@@ -105,7 +105,7 @@ $page_selected = "profil";
                  <input type="text" name="new_login_conf" value="" placeholder="Confirm login" required>
                </li>
              </ul>
-             <button type="submit" name="new_login_submit">Confirm new login</button>
+             <button type="submit" name="new_login_submit"><i class="fal fa-check"></i> Confirm new login</button>
            </form>
            <form class="dual_form" action="profil.php" method="post">
              <h2>Change password</h2>
@@ -120,7 +120,7 @@ $page_selected = "profil";
                  <input type="password" name="new_pass_conf" value="" placeholder="Confirm password" required>
                </li>
              </ul>
-             <button type="submit" name="new_pass_submit">Confirm new password</button>
+             <button type="submit" name="new_pass_submit"><i class="fal fa-check"></i> Confirm new password</button>
            </form>
          </div>
        </div>
